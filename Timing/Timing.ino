@@ -11,14 +11,15 @@ https://forum.arduino.cc/t/struggling-to-obtain-fixed-sampling-frequency/278312/
 
 void setup() {
   Serial.begin(115200);
-
-  for(int counter = 0; counter < 10; counter++) {
-    Serial.println(counter);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
   }
+  
+
 }
 
 void loop() {
-
+Serial.println("Hello");
 }
 
 //  for(int counter = 0; counter < 10; counter ++){
