@@ -1,5 +1,9 @@
 /*
 Read IMU Acc and Gyro data with sample time.
+在此錄檔案給Matlab繪圖，未來希望能做成python realtime
+單位: 
+1. 加速度: g
+2. 陀螺儀: rad/s
 */
 
 #include <Arduino_LSM9DS1.h>
