@@ -6,31 +6,31 @@ addpath('Quaternions');
 addpath('ximu_matlab_library');
 
 %%
-% datatmp = importdata('output.txt');
-% t0 = datatmp(1,1);
-% datatmp(:,1) = datatmp(:,1) - t0;
-% 
-% 
-% time = datatmp(:,1)/1e6;
-% accX = datatmp(:,2);
-% accY = datatmp(:,3);
-% accZ = datatmp(:,4);
-% gyrX = datatmp(:,5);
-% gyrY = datatmp(:,6);
-% gyrZ = datatmp(:,7);
-% 
-% samplePeriod = 1/100;
-% startTime = 1;
-% stopTime = 15;
-% 
-% clear t0 datatmp ans
+datatmp = importdata('output.txt');
+t0 = datatmp(1,1);
+datatmp(:,1) = datatmp(:,1) - t0;
+
+
+time = datatmp(:,1)/1e6;
+accX = datatmp(:,2);
+accY = datatmp(:,3);
+accZ = datatmp(:,4);
+gyrX = datatmp(:,5);
+gyrY = datatmp(:,6);
+gyrZ = datatmp(:,7);
+
+samplePeriod = 1/100;
+startTime = 1;
+stopTime = 15;
+
+clear t0 datatmp ans
 %%
 % -------------------------------------------------------------------------
 % Select dataset (comment in/out)
 
-filePath = 'Datasets/straightLine';
-startTime = 6;
-stopTime = 26;
+% filePath = 'Datasets/straightLine';
+% startTime = 6;
+% stopTime = 26;
 
 % filePath = 'Datasets/stairsAndCorridor';
 % startTime = 5;
@@ -43,16 +43,16 @@ stopTime = 26;
 % -------------------------------------------------------------------------
 % Import data
 
-samplePeriod = 1/256;
-xIMUdata = xIMUdataClass(filePath, 'InertialMagneticSampleRate', 1/samplePeriod);
-time = xIMUdata.CalInertialAndMagneticData.Time;
-gyrX = xIMUdata.CalInertialAndMagneticData.Gyroscope.X;
-gyrY = xIMUdata.CalInertialAndMagneticData.Gyroscope.Y;
-gyrZ = xIMUdata.CalInertialAndMagneticData.Gyroscope.Z;
-accX = xIMUdata.CalInertialAndMagneticData.Accelerometer.X;
-accY = xIMUdata.CalInertialAndMagneticData.Accelerometer.Y;
-accZ = xIMUdata.CalInertialAndMagneticData.Accelerometer.Z;
-clear('xIMUdata');
+% samplePeriod = 1/256;
+% xIMUdata = xIMUdataClass(filePath, 'InertialMagneticSampleRate', 1/samplePeriod);
+% time = xIMUdata.CalInertialAndMagneticData.Time;
+% gyrX = xIMUdata.CalInertialAndMagneticData.Gyroscope.X;
+% gyrY = xIMUdata.CalInertialAndMagneticData.Gyroscope.Y;
+% gyrZ = xIMUdata.CalInertialAndMagneticData.Gyroscope.Z;
+% accX = xIMUdata.CalInertialAndMagneticData.Accelerometer.X;
+% accY = xIMUdata.CalInertialAndMagneticData.Accelerometer.Y;
+% accZ = xIMUdata.CalInertialAndMagneticData.Accelerometer.Z;
+% clear('xIMUdata');
 %%
 % -------------------------------------------------------------------------
 % Manually frame data

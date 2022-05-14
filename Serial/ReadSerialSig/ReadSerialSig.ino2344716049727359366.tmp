@@ -31,7 +31,7 @@ void setup()
 *******  FS  Full Scale         range 0:±2g | 1:±24g | 2: ±4g | 3: ±8g  (default=2)                                           ******
 *******  ODR Output Data Rate   range 0:off | 1:10Hz | 2:50Hz | 3:119Hz | 4:238Hz | 5:476Hz, (default=3)(not working 6:952Hz) ******
 ************************************************************************************************************************************/
-   IMU.accelUnit=  GRAVITY;    // GRAVITY or  METERPERSECOND2    
+   IMU.accelUnit=  METERPERSECOND2;    // GRAVITY or  METERPERSECOND2    
    IMU.gyroUnit= RADIANSPERSECOND;  //   DEGREEPERSECOND  RADIANSPERSECOND  REVSPERMINUTE  REVSPERSECOND  
    
 //   if (!viewInSerialPlotter)
@@ -69,7 +69,7 @@ void loop() {
      Serial.print('\t');
      
      IMU.readGyro(gx, gy, gz);   // alias IMU.readGyroscope
-     Serial.print(-gx);
+     Serial.print(gx);
      Serial.print('\t');
      Serial.print(gy);
      Serial.print('\t');
