@@ -71,9 +71,13 @@ accZ = accZ(indexSel, :);
 
 % -------------------------------------------------------------------------
 % Detect stationary periods
-
+figure();
 % Compute accelerometer magnitude
 acc_mag = sqrt(accX.*accX + accY.*accY + accZ.*accZ);
+
+subplot(3,1,1)
+plot(time, acc_mag);
+title('Accelerometer magnitude before filter')
 
 % HP filter accelerometer data
 filtCutOff = 0.001;
@@ -88,9 +92,15 @@ filtCutOff = 5;
 [b, a] = butter(1, (2*filtCutOff)/(1/samplePeriod), 'low');
 acc_magFilt = filtfilt(b, a, acc_magFilt);
 
+subplot(3,1,2)
+plot(time, acc_mag);
+title('Accelerometer magnitude after filter')
 % Threshold detection
-stationary = acc_magFilt < 0.05;
+stationary = acc_magFilt < 0.04;
 
+subplot(3,1,3)
+plot(time, stationary, 'k', 'LineWidth', 2);
+title('stationary')
 % -------------------------------------------------------------------------
 % Plot data raw sensor data and stationary periods
 
